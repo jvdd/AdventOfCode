@@ -1,5 +1,5 @@
 
-lines = open('input/inputDay8.txt', 'r')
+lines = open('input/inputDay08.txt', 'r')
 
 ## Part 1
 nbCharactersRepresentation = 0

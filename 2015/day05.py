@@ -1,5 +1,5 @@
 
-textfile = open("input/inputDay5.txt",'r')
+textfile = open("input/inputDay05.txt",'r')
 
 ## Part 1
 vowels = "aeiou"

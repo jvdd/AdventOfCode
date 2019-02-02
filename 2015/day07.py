@@ -1,5 +1,5 @@
 
-lines = open('input/inputDay7.txt', 'r')
+lines = open('input/inputDay07.txt', 'r')
 
 circuit = []
 for rule in lines:

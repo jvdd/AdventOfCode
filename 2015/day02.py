@@ -1,7 +1,7 @@
 
 import numpy as np
 
-boxes = open("input/inputDay2.txt",'r')
+boxes = open("input/inputDay02.txt",'r')
 
 ## Part 1
 sqFtWrappingPaper = 0

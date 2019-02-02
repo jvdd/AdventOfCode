@@ -1,5 +1,5 @@
 
-lines = open('input/inputDay6.txt', 'r')
+lines = open('input/inputDay06.txt', 'r')
 
 def getPoints(line):
     splitted = line.rstrip().split(' ')

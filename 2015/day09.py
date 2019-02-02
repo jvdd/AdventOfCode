@@ -1,5 +1,5 @@
 
-distances = open('input/inputDay9.txt', 'r')
+distances = open('input/inputDay09.txt', 'r')
 
 travelMap = {}
 allCities = []
