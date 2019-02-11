@@ -25,6 +25,7 @@ dist = lambda x : distance(x, endTime)
 maxDist = max(map(dist, reindeerStats.keys()))
 print(maxDist)
 
+
 ## Part 2
 def distanceVct(reindeer, time):
     (speed,runtime,resttime) = reindeerStats[reindeer]
@@ -33,22 +34,21 @@ def distanceVct(reindeer, time):
     while t < time:
         distVct[t:t+min(runtime,time-t)] = [speed]*min(runtime,time-t)
         t += runtime + resttime
+
     return np.cumsum(distVct)
 
 def points(time):
-    reindeerPoints = {}
+    reindeerDist = {}
     for reindeer in reindeerStats.keys():
-        reindeerPoints[reindeer] = distanceVct(reindeer, time)
-    best = reindeerPoints.keys()[0]
+        reindeerDist[reindeer] = distanceVct(reindeer, time)
+    best = [list(reindeerDist.keys())[0] for _  in range(time)]
+    dist = lambda x, t : reindeerDist[x][t]
     for i in range(time):
-        for reindeer in reindeerPoints.keys():
-            if reindeer != best and reindeerPoints[reindeer][i] > reindeerPoints[best][i]:
-                best = reindeer
-            reindeerPoints[reindeer][i] = 0
-        reindeerPoints[reindeer][i] = 1
-    
-    sumPoints = lambda x : sum(reindeerPoints[x])
-    return max(map(sumPoints, reindeerPoints.keys()))
+        for reindeer in list(reindeerDist.keys())[1:]:
+            if dist(reindeer, i) > dist(best[i], i):
+                best[i] =  reindeer
+
+    return max(best.count(reindeer) for reindeer in reindeerDist.keys())
 
 result = points(endTime)
 print(result)
