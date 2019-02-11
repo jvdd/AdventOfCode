@@ -1,5 +1,5 @@
 
-sequence = "1113222113"
+sequence = "1113122113"
 
 def nextSequence(sequence):
 	nextSeq = ""
