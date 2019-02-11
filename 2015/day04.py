@@ -14,14 +14,14 @@ def findValidHash(key, nbZeros):
 
 
 ## Part 1
-key = "iwrupvqb"
+key = "bgvyzdsv"
 nbZeros = 5
 (number,hexHash) = findValidHash(key,nbZeros)
 print(str(number) + " " + str(hexHash))
 
 
 ## Part 2
-key = "iwrupvqb"
+key = "bgvyzdsv"
 nbZeros = 6
 (number,hexHash) = findValidHash(key,nbZeros)
 print(str(number) + " " + str(hexHash))
