@@ -14,6 +14,7 @@ for i in range(3,15):
 
 print(len(combs))
 
+
 ## Part 2
 combs = {}
 for i in range(3,15):
