@@ -33,7 +33,7 @@ def get_property(name):
     for property in properties:
         if property[0] == name:
             return property
-    return Warning('No such property')
+    raise Warning('No such property')
 
 match = {}
 for sue in sues_dict:
