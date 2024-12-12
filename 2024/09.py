@@ -8,6 +8,9 @@ map = np.array(list(map.strip()))
 files = map[::2]
 space = map[1::2]
 
+
+# Part 1
+
 arr = []
 id = 0
 for f, space in zip(files, space):
@@ -19,8 +22,6 @@ if len(files) > len(space):
     arr += [id] * int(files[-1])
 
 arr = np.array(arr)
-
-# Part 1
 
 # print("".join(arr))
 
@@ -48,5 +49,4 @@ print(check_sum)
 
 # Part 2
 
-# print("".join(arr))
 

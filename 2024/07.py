@@ -10,11 +10,6 @@ values = [line.strip().split(":")[1].strip().split(" ") for line in data]
 
 # Part 1
 
-
-# create all sum / product combinations for the values
-# and check if the sum is equal to the test value 
-
-
 def create_combinations(start, values, operators=["+", "*"]):
     if len(values) == 1:
         return [[*start, values[0]], [*start, values[0]]]
