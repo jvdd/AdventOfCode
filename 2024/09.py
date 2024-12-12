@@ -6,14 +6,14 @@ with open("inputs/09.txt") as file:
 
 map = np.array(list(map.strip()))
 files = map[::2]
-space = map[1::2]
+spaces = map[1::2]
 
 
 # Part 1
 
 arr = []
 id = 0
-for f, space in zip(files, space):
+for f, space in zip(files, spaces):
     arr += [id] * int(f)
     arr += ["."] * int(space)
     id += 1
@@ -49,4 +49,50 @@ print(check_sum)
 
 # Part 2
 
+arr = []
+id = 0
+for f, space in zip(files, spaces):
+    arr += [(id, int(f))]
+    arr += [(".", int(space))]
+    id += 1
 
+if len(files) > len(space):
+    arr += [(id, int(files[-1]))]
+
+right_idx = len(arr) - 1
+while right_idx >= 0:
+    arr_el = arr[right_idx]
+    if arr_el[0] != ".":
+        el_len = arr_el[1]
+        left_idx = 0
+        while left_idx < right_idx:
+            search_el = arr[left_idx]
+            if search_el[0] == "." and search_el[1] >= el_len:
+                arr[left_idx] = (arr_el[0], el_len)
+                if search_el[1] > el_len:
+                    arr.insert(left_idx + 1, (".", search_el[1] - el_len))
+                    right_idx += 1
+                arr[right_idx] = (".", el_len)
+                break
+            else:
+                left_idx += 1
+    right_idx -= 1
+
+# arr_str = []
+# for el in arr:
+#     arr_str += [str(el[0])] * el[1]
+# print("".join(arr_str))
+
+check_sum = 0
+idx = 0
+for el in arr:
+    if el[0] != ".":
+        el_len = el[1]
+        while el_len > 0:
+            check_sum += el[0] * idx
+            idx += 1
+            el_len -= 1
+    else:
+        idx += el[1]
+
+print(check_sum)
